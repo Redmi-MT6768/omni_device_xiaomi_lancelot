@@ -1,0 +1,9 @@
+on boot
+    wait /sbin/fingerprint_ready 9
+    start recovery
+
+# For starting recovery on 5.0 and newer
+service recovery /sbin/recovery
+    socket recovery stream 422 system system
+    disabled
+    seclabel u:r:recovery:s0
